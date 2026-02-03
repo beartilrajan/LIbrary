@@ -1,0 +1,66 @@
+*,html{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.header,
+.content{
+    border: 1px solid black;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
+    padding:  24px 54px;
+}
+
+
+.header{
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.library{
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.add{
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: aliceblue;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    grid-template-rows: repeat(auto-fit,minmax(80px,200px));
+    gap: 16px;
+    padding: 16px;
+}
+
+.card{
+    border: 1px solid red;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.author{
+    font-size: 1.2rem
+}
