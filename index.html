@@ -26,9 +26,9 @@
                         <span id="pageNumber">123</span>
                     </div>
                 </div>
-                    <div class="buttons">
-                        <button class="changeStatus">Mark Unread</button>
-                        <button class="remove">Remove</button>
+                <div class="buttons">
+                    <button class="changeStatus">Mark Unread</button>
+                    <button class="remove">Remove</button>
                 </div>
             </div>
             <div class="card">
@@ -45,6 +45,30 @@
             </div>
         </div>
     </div>
+
+    <div class="popup" id="popup">
+        <div class="TitlePopup">Add New Book :</div>
+        <div class="form">
+            <div class="bookName">
+                <label for="Title">Title :</label>
+                <input type="text" id="Title" name="Title" id="Title" placeholder="Enter name of the Book">
+            </div>
+            <div class="bookAuthor">
+                <label for="Author">Author :</label>
+                <input type="text" name="Author" id="Author" placeholder="Enter the name of the Author">
+            </div>
+            <div class="numPage">
+                <label for="pages">No of pages :</label>
+                <input type="text" name="pages" id="pages" placeholder="Enter the number of pages">
+            </div>
+        </div>
+        <div class="add-buttons">
+            <button class="Add-book">Add Book</button>
+            <button class="Cancel">Cancel</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
