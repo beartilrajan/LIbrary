@@ -51,7 +51,7 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: #909090;
     border-radius: 16px;
     padding: 24px;
     display: flex;

@@ -30,6 +30,9 @@ function displaybook() {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.id = book.id;
+    if (book.isRead === true) {
+      card.style.backgroundColor = "#c9ff87";
+    }
     card.innerHTML = `<div class="title">${book.title}</div>
                 <div class="subCard">
                     <div class="author">
@@ -45,7 +48,7 @@ function displaybook() {
                     <button class="changeStatus">${book.isRead ? "Mark Unread" : "Mark Read"}</button>
                     <button class="remove">Remove</button>
                 </div>`
-      
+
     content.append(card);
   });
 }
@@ -65,27 +68,21 @@ cancel.addEventListener("click", () => {
 });
 
 content.addEventListener("click", (e) => {
+  const card = e.target.closest(".card");
+  const id = card.dataset.id;
+  const index = myLibrary.findIndex(book => book.id === id);
+
   if (e.target.classList.contains("remove")) {
-    const cardClicked = e.target.closest(".card");
-    cardClicked.remove();
+    myLibrary.splice(index, 1);
+    displaybook();
   }
-})
-
-
-content.addEventListener("click", (e) => {
-  if (e.target.classList.contains("changeStatus")) {
-    const card = e.target.closest(".card");
-    const button = e.target;
-    if (button.textContent === "Mark Unread") {
-      card.style.backgroundColor = "#909090";
-      button.textContent = "Mark Read";
-    }
-    else if (button.textContent === "Mark Read") {
-      card.style.backgroundColor = "#c9ff87";
-      button.textContent = "Mark Unread";
-    }
+  else if (e.target.classList.contains("changeStatus")) {
+    myLibrary[index].isRead = !myLibrary[index].isRead;
+    displaybook();
   }
-})
+}
+);
+
 
 
 popup.addEventListener("click", (e) => {
@@ -98,8 +95,12 @@ popup.addEventListener("click", (e) => {
     addBookToLibrary(title, author, pages, false);
     popup.style.display = "none";
     container.style.filter = "blur(0px)";
+    document.getElementById("Title").value = "";
+    document.getElementById("Author").value = "";
+    document.getElementById("Pages").value = "";
+
   }
 })
 
-addBookToLibrary("Atomic Habits", "James Clear", 320, true);
+addBookToLibrary("Atomic Habits", "James Clear", 320, false);
 addBookToLibrary("Deep Work", "Cal Newport", 296, false);
