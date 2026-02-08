@@ -102,5 +102,5 @@ popup.addEventListener("click", (e) => {
   }
 })
 
-addBookToLibrary("Atomic Habits", "James Clear", 320, false);
+addBookToLibrary("Atomic Habits", "James Clear", 320, true);
 addBookToLibrary("Deep Work", "Cal Newport", 296, false);
