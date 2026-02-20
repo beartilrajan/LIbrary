@@ -8,13 +8,19 @@ const addBook = document.querySelector(".Add-Book");
 
 const myLibrary = [];
 
-function Book(title, author, pages, isRead) {
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book { 
+  constructor(title, author, pages, isRead) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+  toggleRead(){
+    this.isRead = !this.isRead;
+  }
 }
+
 
 function addBookToLibrary(title, author, pages, isRead = false) {
   const newBook = new Book(title, author, pages, isRead)
@@ -77,7 +83,7 @@ content.addEventListener("click", (e) => {
     displaybook();
   }
   else if (e.target.classList.contains("changeStatus")) {
-    myLibrary[index].isRead = !myLibrary[index].isRead;
+    myLibrary[index].toggleRead();
     displaybook();
   }
 }
